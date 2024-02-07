@@ -26,7 +26,7 @@
 - Also place F1SwapMode.ahk in windows startup dir to be able to use in desktop mode (win+r shell:startup)
   
 - Attached is my jpac config as well. Jamma test button = windows sleep. Jamma service = F1 to swap game/desktop mode.
-- Jpac apparently cannot wake windows. I use my readers to wake the PC.
+- Jpac apparently cannot wake windows. I use my readers to wake the PC. However fullscreen programs get goofed when you wake from sleep mode. To fix this just create a scheduled task in windows that runs on an event, specifically Event-Log: System, Source: Kernel-Power, Event-Code: 107. You will want this task to just run the kill-all batch script. I assume bats work fine, but I made an ahk exe that simply calls the bat.
 
 ## features:
 
