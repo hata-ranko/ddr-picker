@@ -1,16 +1,32 @@
-# ddr-picker
-ddr-picker is a [pegasus-fe](https://pegasus-frontend.org/)-based game frontend for Dance Dance Revolution cabinets.<br> it was created to be as fast, pretty, and seamless as possible.
+# hata's fork
+### See /scripts/hata
+- Added openvpn (gui/community version- not openvpn connect) startup to pegasus-startup.ahk for private server
+- F1 to swap between game mode and desktop mode
+- Changed the ahk/regedit stuff from dtam to be much saner and directly r/w to the registry instead of importing an entire foreign winlogon branch. No extra .bats or .regs
 
-https://user-images.githubusercontent.com/72628412/178119730-f949970a-1269-4377-9f61-493f88cf89aa.mp4
 
-if you are looking for a plug-and-play solution, look elsewhere. this will require a lot of manual reworking for your exact system.<br>
-~~this will NOT WORK on an original CRT without heavy reworking of all the graphics, and scripts.~~ i have had reports from multiple people saying that it will work fine on a CRT!
+  ```
+  #NoEnv
+  SendMode Input  
+  SetWorkingDir %A_ScriptDir%  
 
-ddr-picker was specifically optimized for the niche of DDR cabinets that feature a Windows 10 PC plugged into a Dell Ultrasharp U3014 LCD running in 2133 x 1600 resolution (4:3, maxing out the vertical resolution of the monitor) underneath the original display bezel.<br>
-the DDR cabinet's control panel is handled using a [J-PAC](https://www.ultimarc.com/control-interfaces/j-pac-en/j-pac-c-control-only-version/), which makes the buttons on the cab function like a keyboard. the lighting is handled using a [LIT board](https://dinsfire.com/projects/lit-board/).
+  F1::
+  RegRead, curMode, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon, Shell
+  if (curMode = "explorer.exe")
+    RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon, Shell, C:\\pegasus\\pegasus-startup.exe
+  else
+    RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon, Shell, explorer.exe
+	
+  Run, powershell  -noLogo -ExecutionPolicy unrestricted -file C:\pegasus\reboot.ps1,, Hide
+  ```
 
-this was a personal project that i originally never intended to share, but i've put enough work into it at this point that i want to save other people the time of building something like this from the ground up.<br>
-i'm a [graphic designer](https://clue.graphics), and not a coder -- so ddr-picker is bodged together in the only way i know how: [autohotkey](https://www.autohotkey.com/).
+- The F1 ahk is going to require that you change the 64bit ahk exe to run as admin (right click, compatibility tab). I could not get it to work when compiled so I just use the .ahk. There's really no difference between compiled or not here anyways.
+  
+   This one -> `C:\Program Files\AutoHotkey\v1.1.37.01\AutoHotkeyU64.exe`
+- Also place F1SwapMode.ahk in windows startup dir to be able to use in desktop mode (win+r shell:startup)
+  
+- Attached is my jpac config as well. Jamma test button = windows sleep. Jamma service = F1 to swap game/desktop mode.
+- Jpac apparently cannot wake windows. I use my readers to wake the PC.
 
 ## features:
 
