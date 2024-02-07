@@ -28,6 +28,22 @@
 - Attached is my jpac config as well. Jamma test button = windows sleep. Jamma service = F1 to swap game/desktop mode.
 - Jpac apparently cannot wake windows. I use my readers to wake the PC. However fullscreen programs get goofed when you wake from sleep mode. To fix this just create a scheduled task in windows that runs on an event, specifically Event-Log: System, Source: Kernel-Power, Event-Code: 107. You will want this task to just run the kill-all batch script. I assume bats work fine, but I made an ahk exe that simply calls the bat.
 
+## Further ramblings
+### Details on my setup
+Cab goal is to have a fairly seamless and keyboard free PC experience while being able to play various ITG and DDR games + be able to use private eamuse server with card scanning. The PC and monitor are always powered on and stays asleep while not in use. Wake up will be done by card reader numpads. Sleep is done by the coin door test button being set to "sleep" in jpac config. The service button is set to F1 to switch between game mode and desktop mode. Everything but the PC and monitor are hooked up to a [switched outlet](https://www.amazon.com/dp/B08K3LFHZ5) that has a custom button wired to the switch and mounted on the coin door. The coin door also has a game reset button that utilizes the p2 coin input rather than running new wire to the jpac. There is also a [volume potentiometer](https://www.amazon.com/dp/B003FPD3IS) mounted by the power and game reset switches. The casing was removed so the knob just sticks through the panel. This volume control sits inbetween the PC and the amplifier in the cab. The windows and coin door volume are set near max, so the volume pot acts as a master volume.<br>
+The end result is a somewhat clean (at least on the outside) cab setup that is convenient and practical.
+<br>
+### Cab stuff
+- Betson SN cab with arcade pads
+- [Jpac](https://www.ultimarc.com/control-interfaces/j-pac-en/j-pac-jamma-interface/) for menu buttons and coin door + [LIT](https://store.icedragon.io/product/lit-board/) for cabinet lights + [stac](https://store.icedragon.io/product/stac-bundle/) for pad input+lights
+- SFF PC running windows 10 with bloatware removed/turned off. Use [autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to turn off misc things + [script](https://github.com/Sycnex/Windows10Debloater)
+- Windows user [automatically signs in](https://learn.microsoft.com/en-us/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon)
+- Remote work done with RDP and parsec instead of standing in front of cab
+- [DIY readers](https://github.com/CrazyRedMachine/PN5180-cardio) mounted inside cab behind bezel. Keypads wired under glass to front of cab.
+- Python2 / P2IO / EXTIO are unused/disconnected
+- Dell U3014 monitor currently in use until CRT is repaired
+
+# End of hata's changes to this readme
 ## features:
 
 - custom version of [bemani-mame](https://github.com/987123879113/mame/wiki) that instantly loads KS573 mixes at the title screen, with event mode enabled in every mix that supports it
