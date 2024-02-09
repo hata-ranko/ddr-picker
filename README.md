@@ -17,7 +17,7 @@
   else
     RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon, Shell, explorer.exe
 	
-  Run, powershell  -noLogo -ExecutionPolicy unrestricted -file C:\pegasus\reboot.ps1,, Hide
+  Shutdown, 2
   ```
 
 - The F1 ahk is going to require that you change the 64bit ahk exe to run as admin (right click, compatibility tab). I could not get it to work when compiled so I just use the .ahk. There's really no difference between compiled or not here anyways.
