@@ -3,6 +3,7 @@
 - Added openvpn (gui/community version- not openvpn connect) startup to pegasus-startup.ahk for private server
 - F1 to swap between game mode and desktop mode
 - Changed the ahk/regedit stuff from dtam to be much saner and directly r/w to the registry instead of importing an entire foreign winlogon branch. No extra .bats or .regs
+- Eliminated the pointless reboot.ps1 file
 
 
   ```
