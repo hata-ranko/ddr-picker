@@ -10,4 +10,5 @@ F1::
   else
     RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon, Shell, explorer.exe
 	
-  Run, powershell  -noLogo -ExecutionPolicy unrestricted -file C:\pegasus\reboot.ps1,, Hide
+Shutdown, 2
+; Change the 2 to 6 to force reboot
