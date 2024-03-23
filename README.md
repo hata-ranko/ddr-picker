@@ -65,6 +65,13 @@ bgfx_shadow_mask          slot-mask.png
 bgfx_lut                  lut-default.png
 bgfx_avi_name             auto
 ```
+- Change the `video` setting as well to `bgfx`
+```
+#
+# OSD VIDEO OPTIONS
+#
+video                     bgfx
+```
 - `bgfx_screen_chains` can be set to either `crt-geom` or `crt-geom-deluxe` with the latter being a little more fancy and resource heavy
 - Launch a game and open the options menu with `tab` then navigate to `Slider Controls`
 - Press the down arrow until you see a line that says `Window 0, Screen 0 Effect` on the left. On the right it should say the name of the crt filter you chose, if not then use the left/right arrows to select it.
