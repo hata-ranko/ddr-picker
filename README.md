@@ -1,7 +1,7 @@
 # hata's fork
 ### See /scripts/hata
 - Added back the [missing CRT filters](https://github.com/hata-ranko/ddr-picker/blob/main/scripts/hata/mame-crt-filters.7z) (why on earth they were removed, who knows)
-	- See CRT filter section below, I highly recommend it if you're using an LCD monitor.
+	- See [CRT filter section](#crt-filters-in-mame) below, I highly recommend it if you're using an LCD monitor.
 - Added openvpn (gui/community version- not openvpn connect) startup to pegasus-startup.ahk for private server
 - F1 to swap between game mode and desktop mode
 - Changed the ahk/regedit stuff from dtam to be much saner and directly r/w to the registry instead of importing an entire foreign winlogon branch. No extra .bats or .regs
