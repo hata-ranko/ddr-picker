@@ -1,5 +1,7 @@
 # hata's fork
 ### See /scripts/hata
+- Added back the [missing CRT filters](https://github.com/hata-ranko/ddr-picker/blob/main/scripts/hata/mame-crt-filters.7z) (why on earth they were removed, who knows)
+	- See CRT filter section below, I highly recommend it if you're using an LCD monitor.
 - Added openvpn (gui/community version- not openvpn connect) startup to pegasus-startup.ahk for private server
 - F1 to swap between game mode and desktop mode
 - Changed the ahk/regedit stuff from dtam to be much saner and directly r/w to the registry instead of importing an entire foreign winlogon branch. No extra .bats or .regs
@@ -38,6 +40,33 @@ Then run spicecfg or open the config menu in game, go to options tab, windowed o
 and boom, you have a half decent looking ddr on the u3014 on an old cab with the original bezel.<br>
 The only catch is that apparently you can't do borderless windowed so you'll have a thin white bar at the top, which you'll probably forget about if you stop fussing over how things look and actually play the game 
 
+### CRT filters in mame
+For some reason this project does not include the files for the [amazing crt filter](https://docs.mamedev.org/advanced/bgfx.html) that is built-in to mame.
+This filter does an amazing job of improving the appearance of 573 games, I strongly recommend taking a moment to set it up, otherwise you will have awful crunchy graphics.
+
+
+#### Setup instructions
+- Extract contents of [mame-crt-filters.7z](https://github.com/hata-ranko/ddr-picker/blob/main/scripts/hata/mame-crt-filters.7z) to where mame.exe resides
+- Locate the section below in `mame.ini` and change your file to match the example
+```
+#
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              opengl
+bgfx_debug                0
+bgfx_screen_chains        crt-geom-deluxe
+bgfx_shadow_mask          slot-mask.png
+bgfx_lut                  lut-default.png
+bgfx_avi_name             auto
+```
+- `bgfx_screen_chains` can be set to either `crt-geom` or `crt-geom-deluxe` with the latter being a little more fancy and resource heavy
+- Launch a game and open the options menu with `tab` then navigate to `Slider Controls`
+- Press the down arrow until you see a line that says `Window 0, Screen 0 Effect` on the left. On the right it should say the name of the crt filter you chose, if not then use the left/right arrows to select it.
+- There will be a number of settings below to adjust the filter, however the defaults work quite nice. If anything you may want to change the curvature option if you want less curved or not curved. Distance to screen could also be changed, but to me it does not seem to make a big difference.
+
+- **Note that very high resolutions will make the game run poorly when using the CRT filter. Resolutions around 800x600 or 1024x768 should play at full speed no problem. If you have performance problems try reducing the resolution or using the non-deluxe filter if you chose it.**
+
 ### Details on my setup
 Cab goal is to have a fairly seamless and keyboard free PC experience while being able to play various ITG and DDR games + be able to use private eamuse server with card scanning. The PC and monitor are always powered on and stays asleep while not in use. Wake up will be done by card reader numpads. Sleep is done by the coin door test button being set to "sleep" in jpac config. The service button is set to F1 to switch between game mode and desktop mode. Everything but the PC and monitor are hooked up to a [switched outlet](https://www.amazon.com/dp/B08K3LFHZ5) that has a custom button wired to the switch and mounted on the coin door. The coin door also has a game reset button that utilizes the p2 coin input rather than running new wire to the jpac. There is also a [volume potentiometer](https://www.amazon.com/dp/B003FPD3IS) mounted by the power and game reset switches. The casing was removed so the knob just sticks through the panel. This volume control sits inbetween the PC and the amplifier in the cab. The windows and coin door volume are set near max, so the new volume pot acts as a master volume.<br>
 The end result is a somewhat clean (at least on the outside) cab setup that is convenient and practical.
@@ -46,6 +75,7 @@ The end result is a somewhat clean (at least on the outside) cab setup that is c
 - Betson SN cab with arcade pads
 - [Jpac](https://www.ultimarc.com/control-interfaces/j-pac-en/j-pac-jamma-interface/) for menu buttons and coin door + [LIT](https://store.icedragon.io/product/lit-board/) for cabinet lights + [stac](https://store.icedragon.io/product/stac-bundle/) for pad input+lights
 - SFF PC running windows 10 with bloatware removed/turned off. Use [autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to turn off misc things + [script](https://github.com/Sycnex/Windows10Debloater)
+  	- i7 6700T, 8GB DDR4, Intel HD Graphics 530, generic brand 512GB SATA SSD
 - Windows user [automatically signs in](https://learn.microsoft.com/en-us/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon)
 - Remote work done with RDP and parsec instead of standing in front of cab
 - [DIY readers](https://github.com/CrazyRedMachine/PN5180-cardio) mounted inside cab behind bezel. Keypads wired under glass to front of cab.
