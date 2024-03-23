@@ -43,6 +43,11 @@ The only catch is that apparently you can't do borderless windowed so you'll hav
 ### CRT filters in mame
 For some reason this project does not include the files for the [amazing crt filter](https://docs.mamedev.org/advanced/bgfx.html) that is built-in to mame.
 This filter does an amazing job of improving the appearance of 573 games, I strongly recommend taking a moment to set it up, otherwise you will have awful crunchy graphics.
+> **_NOTE:_** **Open each image in a new tab for a proper comparison**
+
+No filter            |  With filter
+:-------------------------:|:-------------------------:
+![IMG_9920](https://github.com/hata-ranko/ddr-picker/assets/31801442/bb3e9f6b-6cd2-4b52-b846-e0d9f0af3f2b)  |  ![IMG_9918](https://github.com/hata-ranko/ddr-picker/assets/31801442/a920c601-99c6-4db0-a6e4-c1fafecdeca9)
 
 
 #### Setup instructions
@@ -68,6 +73,7 @@ bgfx_avi_name             auto
 - **Note that very high resolutions will make the game run poorly when using the CRT filter. Resolutions around 800x600 or 1024x768 should play at full speed no problem. If you have performance problems try reducing the resolution or using the non-deluxe filter if you chose it.**
 
 ### Details on my setup
+
 Cab goal is to have a fairly seamless and keyboard free PC experience while being able to play various ITG and DDR games + be able to use private eamuse server with card scanning. The PC and monitor are always powered on and stays asleep while not in use. Wake up will be done by card reader numpads. Sleep is done by the coin door test button being set to "sleep" in jpac config. The service button is set to F1 to switch between game mode and desktop mode. Everything but the PC and monitor are hooked up to a [switched outlet](https://www.amazon.com/dp/B08K3LFHZ5) that has a custom button wired to the switch and mounted on the coin door. The coin door also has a game reset button that utilizes the p2 coin input rather than running new wire to the jpac. There is also a [volume potentiometer](https://www.amazon.com/dp/B003FPD3IS) mounted by the power and game reset switches. The casing was removed so the knob just sticks through the panel. This volume control sits inbetween the PC and the amplifier in the cab. The windows and coin door volume are set near max, so the new volume pot acts as a master volume.<br>
 The end result is a somewhat clean (at least on the outside) cab setup that is convenient and practical.
 <br>
